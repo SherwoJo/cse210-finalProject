@@ -16,12 +16,12 @@ namespace cse210_finalProject.Game.Casting
             List<Actor> platforms = platform.GetSegments();
 
             Random random = new Random();
-            int segment = random.Next(platforms.Count + 1);
+            int segment = random.Next(platforms.Count);
             Point platformPosition = platforms[segment].GetPosition();
             int x = platformPosition.GetX();
             int y = platformPosition.GetY();
 
-            Point coinPosition = new Point(x, y + 2);
+            Point coinPosition = new Point(x, y);
             Point velocity = new Point(0, 0);
             string text = "*";
             Color color = Constants.YELLOW;

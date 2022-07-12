@@ -64,7 +64,7 @@ namespace cse210_finalProject.Game.Scripting
 
             if (coin.GetPosition().Equals(player.GetPosition()))
             {
-                cast.RemoveActor("coin", coin);
+                coin.SetText("");
                 score.AddPoints(1);
                 coin.GenerateCoin(cast);
             }

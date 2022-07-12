@@ -19,7 +19,7 @@ namespace cse210_finalProject
         public static int MIDDLE_PLATFORM_LENGTH = 20;
         public static int TOP_PLATFORM_LENGTH = 7;
         public static int JUMP_HEIGHT = 5;
-        public static int GRAVITY = JUMP_HEIGHT / 2;
+        public static int GRAVITY = 100;
 
         public static Color RED = new Color(255, 0, 0);
         public static Color WHITE = new Color(255, 255, 255);
