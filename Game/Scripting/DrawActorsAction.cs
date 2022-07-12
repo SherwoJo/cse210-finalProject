@@ -2,7 +2,7 @@ using System;
 
 namespace cse210_finalProject.Game.Scripting
 {
-    public class DrawActorsAction
+    public class DrawActorsAction : Action
     {
         
     }

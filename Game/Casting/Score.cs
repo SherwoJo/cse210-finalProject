@@ -2,7 +2,7 @@ using System;
 
 namespace cse210_finalProject.Game.Casting
 {
-    public class Score
+    public class Score : Actor
     {
         
     }
