@@ -10,7 +10,6 @@ namespace cse210_finalProject.Game.Casting
             GenerateCoin(cast);
         }
 
-        // Places a coin above a random Platform segment.
         public void GenerateCoin(Cast cast)
         {
             Platform platform = (Platform)cast.GetFirstActor("platform");
@@ -26,13 +25,10 @@ namespace cse210_finalProject.Game.Casting
             Point velocity = new Point(0, 0);
             string text = "*";
             Color color = Constants.YELLOW;
-            Actor coin = new Actor();
-            coin.SetPosition(coinPosition);
-            coin.SetVelocity(velocity);
-            coin.SetText(text);
-            coin.SetColor(color);
-
-            cast.AddActor("coin", coin);
+            SetPosition(coinPosition);
+            SetVelocity(velocity);
+            SetText(text);
+            SetColor(color);
         }
     }
 }
