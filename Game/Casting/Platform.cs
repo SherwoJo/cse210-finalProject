@@ -9,7 +9,7 @@ namespace cse210_finalProject.Game.Casting
         private List<Actor> segments = new List<Actor>();
 
         /// <summary>
-        /// Constructs a new instance of the Platfomrs.
+        /// Constructs a new instance of the Platforms.
         /// </summary>
         public Platform()
         {
