@@ -32,7 +32,7 @@ namespace cse210_finalProject.Game.Casting
         {
             // Platform 1
             int x = 0;
-            int y = (Constants.MAX_Y / 2);
+            int y = 2 * (Constants.MAX_Y / 3);
 
             for (int i = 0; i < Constants.BOTTOM_PLATFORM_LENGTH; i++)
             {

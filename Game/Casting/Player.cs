@@ -10,7 +10,7 @@ namespace cse210_finalProject.Game.Casting
         { 
             string text = "#";
             Color color = Constants.BLUE;
-            Point position = new Point(Constants.CELL_SIZE, 3 * (Constants.MAX_Y / 2));
+            Point position = new Point(Constants.CELL_SIZE, 2 * (Constants.MAX_Y / 3));
             Point velocity = new Point(0, 0);
 
             SetText(text);
