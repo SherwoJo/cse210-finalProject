@@ -19,6 +19,7 @@ namespace cse210_finalProject
         public static int MIN_PLATFORM_LENGTH = 15;
         public static int JUMP_HEIGHT = 30;
         public static int GRAVITY = 5;
+        public static int NUMBER_OF_SPIKES = 15;
 
         public static Color RED = new Color(255, 0, 0);
         public static Color WHITE = new Color(255, 255, 255);

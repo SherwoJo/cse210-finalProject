@@ -64,7 +64,7 @@ namespace cse210_finalProject.Game.Scripting
             Coin coin = (Coin)cast.GetFirstActor("coin");
             Score score = (Score)cast.GetFirstActor("score");
 
-            if (coin.GetPosition().Equals(player.GetPosition()))
+            if (Math.Abs(coin.GetPosition().GetX() - player.GetPosition().GetX()) <= (Constants.CELL_SIZE) && Math.Abs((coin.GetPosition().GetY() - player.GetPosition().GetY())) <= Constants.CELL_SIZE)
             {
                 coin.SetText("");
                 score.AddPoints(1);
@@ -84,7 +84,7 @@ namespace cse210_finalProject.Game.Scripting
 
             foreach (Actor segment in spikes)
             {
-                if (segment.GetPosition().GetX() == player.GetPosition().GetX() && (segment.GetPosition().GetY() - player.GetPosition().GetY()) <= Constants.CELL_SIZE)
+                if (Math.Abs(segment.GetPosition().GetX() - player.GetPosition().GetX()) <= (Constants.CELL_SIZE / 2) && (segment.GetPosition().GetY() == player.GetPosition().GetY()))
                 {
                     Point velocity = new Point(0, 0);
                     player.SetVelocity(velocity);

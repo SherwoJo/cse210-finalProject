@@ -32,6 +32,10 @@ namespace cse210_finalProject.Game.Casting
             int x = (GetPosition().GetX() + GetVelocity().GetX() + Constants.MAX_X) % Constants.MAX_X;
             int y = (GetPosition().GetY() + GetVelocity().GetY());
 
+            if (y > Constants.MAX_Y)
+            {
+                y = Constants.MAX_Y - Constants.CELL_SIZE;
+            }
 
             SetPosition(new Point(x, y));
         }

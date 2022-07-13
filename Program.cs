@@ -15,7 +15,7 @@ namespace cse210_finalProject
             cast.AddActor("platform", new Platform());
             cast.AddActor("player", new Player(cast));
             cast.AddActor("coin", new Coin(cast));
-            cast.AddActor("spike", new Spike());
+            cast.AddActor("spike", new Spike(cast));
             cast.AddActor("score", new Score());
 
             // create the services
