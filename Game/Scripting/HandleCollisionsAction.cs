@@ -42,10 +42,10 @@ namespace cse210_finalProject.Game.Scripting
             bool isPlayerFalling = true;
             foreach (Actor segment in platforms)
             {
-                if (segment.GetPosition().GetX() == player.GetPosition().GetX() && (segment.GetPosition().GetY() - player.GetPosition().GetY()) <= Constants.CELL_SIZE)
+                if (Math.Abs(segment.GetPosition().GetX() - player.GetPosition().GetX()) <= (Constants.CELL_SIZE / 2) && Math.Abs(segment.GetPosition().GetY() - player.GetPosition().GetY()) <= player.GetVelocity().GetY())
                 {
                     Point velocity = new Point(player.GetVelocity().GetX(), 0);
-                    Point position = new Point(player.GetPosition().GetX(), segment.GetPosition().GetY());
+                    Point position = new Point(segment.GetPosition().GetX(), segment.GetPosition().GetY());
                     player.SetVelocity(velocity);
                     player.SetPosition(position);
                     isPlayerFalling = false;

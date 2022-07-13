@@ -18,7 +18,7 @@ namespace cse210_finalProject.Game.Casting
             int x = platformPosition.GetX();
             int y = platformPosition.GetY();
 
-            Point position = new Point(x, y - (Constants.CELL_SIZE));
+            Point position = new Point(x, y);
             Point velocity = new Point(0, 0);
             string text = "#";
             Color color = Constants.BLUE;
@@ -29,8 +29,10 @@ namespace cse210_finalProject.Game.Casting
         }
         public override void MoveNext()
         {
-            int x = (GetPosition().GetX() + GetVelocity().GetX());
+            int x = (GetPosition().GetX() + GetVelocity().GetX() + Constants.MAX_X) % Constants.MAX_X;
             int y = (GetPosition().GetY() + GetVelocity().GetY());
+
+
             SetPosition(new Point(x, y));
         }
     }
