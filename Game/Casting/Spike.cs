@@ -32,13 +32,13 @@ namespace cse210_finalProject.Game.Casting
         {
             // Bottom Spikes
             int x = 0;
-            int y = Constants.MAX_Y;
+            int y = Constants.MAX_Y - Constants.CELL_SIZE;
 
             for (int i = 0; i < Constants.COLUMNS; i++)
             {
                 Point position = new Point(x + i * Constants.CELL_SIZE, y);
                 Point velocity = new Point(0, 0);
-                string text = "A";
+                string text = "W";
                 Color color = Constants.RED;
                 Actor segment = new Actor();
                 segment.SetPosition(position);

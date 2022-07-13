@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace cse210_finalProject.Game.Casting
 {
@@ -6,32 +7,31 @@ namespace cse210_finalProject.Game.Casting
     {
         public bool isFalling { get; set; } = false;
 
-        public Player()
+        public Player(Cast cast)
         { 
+            Platform platform = (Platform)cast.GetFirstActor("platform");
+            List<Actor> platforms = platform.GetSegments();
+
+            Random random = new Random();
+            int segment = random.Next(platforms.Count);
+            Point platformPosition = platforms[segment].GetPosition();
+            int x = platformPosition.GetX();
+            int y = platformPosition.GetY();
+
+            Point position = new Point(x, y - (Constants.CELL_SIZE));
+            Point velocity = new Point(0, 0);
             string text = "#";
             Color color = Constants.BLUE;
-            Point position = new Point(Constants.CELL_SIZE, 2 * (Constants.MAX_Y / 3));
-            Point velocity = new Point(0, 0);
-
-            SetText(text);
-            SetColor(color);
             SetPosition(position);
             SetVelocity(velocity);
+            SetText(text);
+            SetColor(color);
         }
         public override void MoveNext()
         {
-            int x = ((GetPosition().GetX() + GetVelocity().GetX()) + Constants.MAX_X) % Constants.MAX_X;
-            int y = ((GetPosition().GetY() + GetVelocity().GetY()) + Constants.MAX_Y) % Constants.MAX_Y;
+            int x = (GetPosition().GetX() + GetVelocity().GetX());
+            int y = (GetPosition().GetY() + GetVelocity().GetY());
             SetPosition(new Point(x, y));
-
-            // Update the player's velocity due to friction and gravity.
-            if (isFalling)
-            {
-                int x1 = 0;
-                int y1 = GetVelocity().GetY() + Constants.GRAVITY;
-                Point newVelocity = new Point(x1, y1);
-                SetVelocity(newVelocity);
-            }
         }
     }
 }

@@ -21,25 +21,36 @@ namespace cse210_finalProject.Game.Scripting
         /// <inheritdoc/>
         public override void Execute(Cast cast, Script script)
         {
+            Player player = (Player)cast.GetFirstActor("player");
+            int x = player.GetVelocity().GetX();
+            int y = player.GetVelocity().GetY();
             // left
             if (keyboardService.IsKeyDown("a"))
             {
-                velocity = new Point(-Constants.CELL_SIZE, 0);
+                velocity = new Point(-Constants.CELL_SIZE, y);
             }
-
             // Right
             if (keyboardService.IsKeyDown("d"))
             {
-                velocity = new Point(Constants.CELL_SIZE, 0);
+                velocity = new Point(Constants.CELL_SIZE, y);
+            }
+            // Neither left or right
+            if (keyboardService.IsKeyUp("a") && keyboardService.IsKeyUp("d"))
+            {
+                velocity = new Point(0, y);
             }
 
             // Jump
-            if (keyboardService.IsKeyDown("w"))
+            if (keyboardService.IsKeyDown("w") && !player.isFalling)
             {
-                velocity = new Point(0, -(Constants.JUMP_HEIGHT * Constants.CELL_SIZE));
+                velocity = new Point(x, -(Constants.JUMP_HEIGHT));
             }
 
-            Player player = (Player)cast.GetFirstActor("player");
+            if (player.isFalling)
+            {
+                velocity = new Point(x, (player.GetVelocity().GetY() + Constants.GRAVITY));
+            }
+
             player.SetVelocity(velocity);
         }
     }

@@ -42,10 +42,12 @@ namespace cse210_finalProject.Game.Scripting
             bool isPlayerFalling = true;
             foreach (Actor segment in platforms)
             {
-                if (segment.GetPosition().Equals(player.GetPosition()))
+                if (segment.GetPosition().GetX() == player.GetPosition().GetX() && (segment.GetPosition().GetY() - player.GetPosition().GetY()) <= Constants.CELL_SIZE)
                 {
-                    Point velocity = new Point(0, 0);
+                    Point velocity = new Point(player.GetVelocity().GetX(), 0);
+                    Point position = new Point(player.GetPosition().GetX(), segment.GetPosition().GetY());
                     player.SetVelocity(velocity);
+                    player.SetPosition(position);
                     isPlayerFalling = false;
                 }
             }
@@ -82,8 +84,10 @@ namespace cse210_finalProject.Game.Scripting
 
             foreach (Actor segment in spikes)
             {
-                if (segment.GetPosition().Equals(player.GetPosition()))
+                if (segment.GetPosition().GetX() == player.GetPosition().GetX() && (segment.GetPosition().GetY() - player.GetPosition().GetY()) <= Constants.CELL_SIZE)
                 {
+                    Point velocity = new Point(0, 0);
+                    player.SetVelocity(velocity);
                     isGameOver = true;
                 }
             }

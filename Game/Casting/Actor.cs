@@ -69,9 +69,9 @@ namespace cse210_finalProject.Game.Casting
         /// </summary>
         public virtual void MoveNext()
         {
-            int x = ((position.GetX() + velocity.GetX()) + Constants.MAX_X) % Constants.MAX_X;
-            int y = ((position.GetY() + velocity.GetY()) + Constants.MAX_Y) % Constants.MAX_Y;
-            position = new Point(x, y);
+            // int x = ((position.GetX() + velocity.GetX()) + Constants.MAX_X) % Constants.MAX_X;
+            // int y = ((position.GetY() + velocity.GetY()) + Constants.MAX_Y) % Constants.MAX_Y;
+            // position = new Point(x, y);
         }
 
         /// <summary>

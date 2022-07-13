@@ -12,8 +12,8 @@ namespace cse210_finalProject
         {
             // create the cast
             Cast cast = new Cast();
-            cast.AddActor("player", new Player());
             cast.AddActor("platform", new Platform());
+            cast.AddActor("player", new Player(cast));
             cast.AddActor("coin", new Coin(cast));
             cast.AddActor("spike", new Spike());
             cast.AddActor("score", new Score());

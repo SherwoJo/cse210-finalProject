@@ -21,11 +21,11 @@ namespace cse210_finalProject.Game.Casting
             int x = platformPosition.GetX();
             int y = platformPosition.GetY();
 
-            Point coinPosition = new Point(x, y);
+            Point position = new Point(x, y - (2 * Constants.CELL_SIZE));
             Point velocity = new Point(0, 0);
             string text = "*";
             Color color = Constants.YELLOW;
-            SetPosition(coinPosition);
+            SetPosition(position);
             SetVelocity(velocity);
             SetText(text);
             SetColor(color);
